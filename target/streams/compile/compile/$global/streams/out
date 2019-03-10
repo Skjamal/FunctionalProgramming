@@ -1,0 +1,7 @@
+[0m[[0m[31merror[0m] [0m[0mC:\Users\SatinderJamal\Desktop\390v\Assignment2\src\main\scala\server.scala:15:18: reassignment to val[0m
+[0m[[0m[31merror[0m] [0m[0m      if(in.next = "GET"){[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mC:\Users\SatinderJamal\Desktop\390v\Assignment2\src\main\scala\server.scala:16:12: value substring is not a member of Iterator[String][0m
+[0m[[0m[31merror[0m] [0m[0m        in.substring(1)[0m
+[0m[[0m[31merror[0m] [0m[0m           ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
