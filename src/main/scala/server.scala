@@ -10,7 +10,6 @@ object Server {
       serve(server)
     }
 
-
   def serve(server: ServerSocket) { //list what the server does, it accepts the server, reads the incoming message, and sends that to another method to determine if it's a valid request
     val s = server.accept()
     val in = new BufferedReader(new InputStreamReader(s.getInputStream))
@@ -35,20 +34,14 @@ object Server {
 
   def output(out: BufferedWriter): Unit ={
     if (fileName == null) {
-     out.write("HTTP/1.0 404 Not Found \r\n")
-     out.write("\r\n")
-
-     else write("HTTP/1.0 200 Ok \r\n")
-      write("\r\n")
+      out.write("HTTP/1.0 404 Not Found \r\n")
+      out.write("\r\n")
     }
-    else
-
-      }
-      else { //send error message}
-      }
+     else out.write("HTTP/1.0 200 Ok \r\n")
+      write("\r\n")
       out.flush
       s.close
-    }
+
 
 
 
