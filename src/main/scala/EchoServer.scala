@@ -32,7 +32,7 @@ object EchoServer {
 
   def read_next(arrayOfFirstLineStrings: Array[String], out: BufferedWriter): Unit = { //read_next method
     val url = arrayOfFirstLineStrings(1) //the file name is contained within the second string in the array
-  val fileName = url.substring(1) //the url is the file name begins after the "/" in /index.html}
+    val fileName = url.substring(1) //the url is the file name begins after the "/" in /index.html}
     output(out, fileName) //
   }
 
@@ -42,8 +42,10 @@ object EchoServer {
       out.write("\r\n")
     }
     else {
+      val file = "index.html"
       out.write("HTTP/1.0 200 Ok \r\n") //if it index.html then return 200 response
       out.write("\r\n")
+      out.write(file)
     }
     out.flush()
 
