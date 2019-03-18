@@ -25,7 +25,8 @@ object EchoServer {
       read_next(arrayOfFirstLineStrings, out) //then send the array to the method read_next
     }
     else { //if not "GET"
-     out.write("HTTP/1.0 501 \r\n")
+      out.write("HTTP/1.0 501 \r\n")
+      out.write("\r\n")
     }
   }
 
