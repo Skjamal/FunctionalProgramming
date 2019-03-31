@@ -2,15 +2,16 @@ import java.io._
 import java.net._
 import scala.io._
 
+
 object EchoServer {
-  def main(args: Array[String]) {
+  def main(args: Array[String]): Unit ={
     val server = new ServerSocket(9999)
     while (true) {
       serve(server)
     }
   }
 
-  def serve(server: ServerSocket) { //the ServerSocket listens for client requests
+  def serve(server: ServerSocket): Unit ={ //the ServerSocket listens for client requests
     val s = server.accept() //the server accepts the clients connection
     val in = new BufferedReader(new InputStreamReader(s.getInputStream)) //val in = the data the client sends out to the server
     val out = new BufferedWriter(new OutputStreamWriter(s.getOutputStream)) //val out = the data the server sends out to the client
@@ -25,7 +26,7 @@ object EchoServer {
       read_next(arrayOfFirstLineStrings, out) //then send the array to the method read_next
     }
     else { //if not "GET"
-      out.write("HTTP/1.0 501 \r\n")
+      out.write("HTTP/1.0 500 \r\n")
       out.write("\r\n")
     }
   }
@@ -42,10 +43,12 @@ object EchoServer {
       out.write("\r\n")
     }
     else {
-      val file = "index.html"
+      val file = scala.io.Source.fromFile("input.html")
+      val lines = scala.io.Source.fromFile("file.txt", "utf-8").getLines.mkString
       out.write("HTTP/1.0 200 Ok \r\n") //if it index.html then return 200 response
       out.write("\r\n")
-      out.write(file)
+      out.write(lines)
+
     }
     out.flush()
 
