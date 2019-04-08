@@ -1,5 +1,6 @@
 import java.io._
 import java.net._
+import java.io.File
 import scala.io._
 
 
@@ -28,31 +29,46 @@ object EchoServer {
     else { //if not "GET"
       out.write("HTTP/1.0 500 \r\n")
       out.write("\r\n")
+      out.write("OOPS")
+
     }
+
   }
+
 
   def read_next(arrayOfFirstLineStrings: Array[String], out: BufferedWriter): Unit = { //read_next method
     val url = arrayOfFirstLineStrings(1) //the file name is contained within the second string in the array
     val fileName = url.substring(1) //the url is the file name begins after the "/" in /index.html}
-    output(out, fileName) //
+
+    if (url.equals("/")) { //if file is not index.html then it will return null
+      out.write("HTTP/1.0 200 OK \r\n") //
+      out.write("\r\n")
+     try{
+       for (line <- Source.fromFile("index.html").getLines) {
+         out.write(line)
+         out.flush()
+       }
+         out.close()
+     } catch {
+       case e: Exception => println(e.getMessage)
+     }
+    }
+      else {
+        val fileName = url.substring(1)
+        val makePath = ".\\"
+        out.write("HTTP/1.0 200 ok \r\n")
+        out.write("\r\n")
+        val filePath = makePath.concat(fileName)
+
+          for (line <- Source.fromFile(filePath).getLines) {
+            println(line)
+            out.write(line)
+
+          }
+        }
+
+
+    }
+
   }
 
-  def output(out: BufferedWriter, fileName: String): Unit = {
-    if (fileName == null) { //if file is not index.html then it will return null
-      out.write("HTTP/1.0 404 Not Found \r\n") //return 404 error
-      out.write("\r\n")
-    }
-    else {
-      val file = scala.io.Source.fromFile("input.html")
-      val lines = scala.io.Source.fromFile("file.txt", "utf-8").getLines.mkString
-      out.write("HTTP/1.0 200 Ok \r\n") //if it index.html then return 200 response
-      out.write("\r\n")
-      out.write(lines)
-
-    }
-    out.flush()
-
-  }
-
-
-}
