@@ -24,5 +24,9 @@
     <orderEntry type="library" name="sbt: org.mockito:mockito-core:2.7.21:jar" level="project" />
     <orderEntry type="library" name="sbt: org.markushauck:mockitoscala_2.12:0.3.0:jar" level="project" />
     <orderEntry type="library" name="sbt: net.bytebuddy:byte-buddy-agent:1.6.11:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: net.bytebuddy:byte-buddy:1.9.10:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: net.bytebuddy:byte-buddy-agent:1.9.10:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.mockito:mockito-core:2.26.0:jar" level="project" />
+    <orderEntry type="library" scope="TEST" name="sbt: org.objenesis:objenesis:2.6:jar" level="project" />
   </component>
 </module>

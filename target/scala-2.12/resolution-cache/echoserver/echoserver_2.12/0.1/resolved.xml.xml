@@ -4,7 +4,7 @@
 		module="echoserver_2.12"
 		revision="0.1"
 		status="integration"
-		publication="20190403131354"
+		publication="20190412095832"
 	>
 		<description>
 		EchoServer
@@ -35,5 +35,6 @@
 		<dependency org="org.scalatest" name="scalatest_2.12" rev="3.0.5" conf="test->default(compile)"/>
 		<dependency org="org.scalamock" name="scalamock_2.12" rev="4.1.0" conf="test->default(compile)"/>
 		<dependency org="org.markushauck" name="mockitoscala_2.12" rev="0.3.0" conf="compile->default(compile)"/>
+		<dependency org="org.mockito" name="mockito-core" rev="2.26.0" conf="test->default(compile)"/>
 	</dependencies>
 </ivy-module>
