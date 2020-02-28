@@ -37,7 +37,6 @@ object EchoServer {
 
   def read_next(arrayOfFirstLineStrings: Array[String], out: BufferedWriter): Unit = { //read_next method
     val url = arrayOfFirstLineStrings(1) //the file name is contained within the second string in the array
-  //System.out.println(arrayOfFirstLineStrings(1))
     val fileName = url.substring(1) //the url is the file name begins after the "/" in /index.html}
     System.out.println(fileName)
     if (url.equals("/")) { //if file is not index.html then it will return null
@@ -60,14 +59,6 @@ object EchoServer {
         fileName = fileName.concat(html)
         System.out.println(fileName)
       }
-
-      //val makePath = "C:\\..\\"
-      //System.out.println(makePath)
-      //out.write("HTTP/1.1 200 ok \r\n")
-      //out.write("\r\n")
-      //val filePath = makePath.concat(fileName)
-      //System.out.println(filePath)
-
 
       try {
         for (line <- Source.fromFile(fileName).getLines) {
